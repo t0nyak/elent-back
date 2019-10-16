@@ -1,0 +1,11 @@
+# IDE folders
+.idea/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+trees_ong_back/__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual env
+trees-ong/
