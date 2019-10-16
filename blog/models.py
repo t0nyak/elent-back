@@ -30,14 +30,25 @@ class Category(models.Model):
 
 
 class Post(models.Model):
+    STATUS = (
+        (0, "Draft"),
+        (1, "Published")
+    )
+
     uuid = models.UUIDField(
         primary_key=True, default=uuid.uuid4, editable=False)
-    title = models.CharField(max_length=200)
+    title = models.CharField(max_length=200, unique=True)
     body = models.TextField()
-    date = models.DateTimeField(auto_now_add=True)
+    created_on = models.DateTimeField(auto_now_add=True)
+    updated_on = models.DateTimeField(auto_now=True)
+    slug = models.SlugField(max_length=200, unique=True)
+    status = models.IntegerField(choices=STATUS, default=0)
 
     author = models.ForeignKey(Author, on_delete=models.DO_NOTHING)
     category = models.ForeignKey(Category, on_delete=models.DO_NOTHING)
+
+    class Meta:
+        ordering = ['-created_on']
 
     def __str__(self):
         return self.title
