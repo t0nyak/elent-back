@@ -1,17 +1,17 @@
 from rest_framework import serializers
-from .models import Author, Category, Post
+from . import models
 
 class AuthorSerializer(serializers.ModelSerializer):
 
     class Meta:
-        model = Author
+        model = models.Author
         fields = ('__all__')
 
 
 class CategorySerializer(serializers.ModelSerializer):
 
     class Meta:
-        model = Category
+        model = models.Category
         fields = ('__all__')
 
 
@@ -28,5 +28,5 @@ class PostSerializer(serializers.ModelSerializer):
     )
 
     class Meta:
-        model = Post
+        model = models.Post
         fields = ('__all__')
