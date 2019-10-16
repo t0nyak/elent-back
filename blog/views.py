@@ -1,10 +1,10 @@
 from django.http import HttpResponse
 from rest_framework.renderers import JSONRenderer
 from rest_framework.decorators import api_view
-from .models import Author, Category, Post
+from rest_framework import generics
+from . import models
 from .serializers import AuthorSerializer, CategorySerializer, PostSerializer
 
-# Create your views here.
 
 # Just wraps a simple HTTP Response to a JSON Response
 class JSONResponse(HttpResponse):
@@ -17,20 +17,33 @@ class JSONResponse(HttpResponse):
 def index(request):
     return HttpResponse("&lt;h3&gt;Welcome to Trees ONG Blog API v0.1&lt;/h3&gt;")
 
+
 @api_view(['GET'])
 def authors(request):
-    authors = Author.objects.all()
+    authors = models.Author.objects.all()
     serializer = AuthorSerializer(authors, many=True)
     return JSONResponse(serializer.data)
 
+
 @api_view(['GET'])
 def categories(request):
-    categories = Category.objects.all()
+    categories = models.Category.objects.all()
     serializer = CategorySerializer(categories, many=True)
     return JSONResponse(serializer.data)
 
+
 @api_view(['GET'])
 def posts(request):
-    posts = Post.objects.all()
+    posts = models.Post.objects.all()
     serializer = PostSerializer(posts, many=True)
     return JSONResponse(serializer.data)
+
+
+class PostList(generics.ListAPIView):
+    queryset = models.Post.objects.all()
+    serializer_class = PostSerializer
+
+
+class PostDetail(generics.RetrieveAPIView):
+    queryset = models.Post.objects.all()
+    serializer_class = PostSerializer
