@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'trees_ong_back.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'trees',
+        'NAME': 'elent',
         'USER': 'trees',
         'PASSWORD': 'tr33s-0ng',
         'HOST': 'localhost',
@@ -106,6 +106,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+#AUTH_USER_MODEL = "api.Socio"
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
