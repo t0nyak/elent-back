@@ -1,7 +1,7 @@
 from django.db import models
 import uuid
 
-from api.models import Socio
+#from api.models import Socio
 from datetime import datetime
 
 
@@ -40,7 +40,7 @@ class Cart(models.Model):
         primary_key=True, default=uuid.uuid4, editable=False)
     created_at = models.DateTimeField(default=datetime.now)
 
-    user = models.ForeignKey(Socio, on_delete=models.CASCADE)
+    #user = models.ForeignKey(Socio, on_delete=models.CASCADE)
 
 
 class CartItem(models.Model):

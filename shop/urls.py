@@ -1,7 +1,7 @@
 from django.urls import path, include
 from . import views
 from rest_framework import routers, viewsets
-from .models import Category, Cart, Product, Socio, CartItem
+from .models import Category, Cart, Product, CartItem
 from .serializers import CartSerializer, CategorySerializer, CartItemSerializer, ProductSerializer
 
 
