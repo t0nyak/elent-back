@@ -37,9 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'api',
-    'blog',
-    'shop',
+    'api.apps.ApiConfig',
+    'blog.apps.BlogConfig',
+    'shop.apps.ShopConfig',
     'rest_framework'
 ]
 
@@ -106,7 +106,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-#AUTH_USER_MODEL = "api.Socio"
+AUTH_USER_MODEL = "api.Socio"
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/

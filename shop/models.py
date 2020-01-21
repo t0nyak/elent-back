@@ -1,11 +1,13 @@
 from django.db import models
 import uuid
 
-#from api.models import Socio
 from datetime import datetime
 
 
 # Create your models here.
+from api.models import Socio
+
+
 class Category(models.Model):
     uuid = models.UUIDField(
         primary_key=True, default=uuid.uuid4, editable=False)
@@ -40,7 +42,7 @@ class Cart(models.Model):
         primary_key=True, default=uuid.uuid4, editable=False)
     created_at = models.DateTimeField(default=datetime.now)
 
-    #user = models.ForeignKey(Socio, on_delete=models.CASCADE)
+    user = models.ForeignKey(Socio, on_delete=models.CASCADE, null=True)
 
 
 class CartItem(models.Model):
