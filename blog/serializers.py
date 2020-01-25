@@ -5,14 +5,14 @@ class AuthorSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = models.Author
-        fields = ('__all__')
+        fields = '__all__'
 
 
 class CategorySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = models.Category
-        fields = ('__all__')
+        fields = '__all__'
 
 
 class PostSerializer(serializers.ModelSerializer):

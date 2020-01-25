@@ -25,7 +25,7 @@ SECRET_KEY = 'mekfwj@h+vb2th3!vgrx3q*z00)cxa@3&tzgzsh2sw$+c#9hiu'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -40,10 +40,12 @@ INSTALLED_APPS = [
     'api.apps.ApiConfig',
     'blog.apps.BlogConfig',
     'shop.apps.ShopConfig',
-    'rest_framework'
+    'rest_framework',
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -51,6 +53,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
+
+CORS_ORIGIN_WHITELIST = [
+    "http://localhost:4200"
 ]
 
 ROOT_URLCONF = 'trees_ong_back.urls'
