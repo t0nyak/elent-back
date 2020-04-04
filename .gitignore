@@ -7,6 +7,11 @@ trees_ong_back/__pycache__/
 *.py[cod]
 *$py.class
 
+# Static files
+static/
+
 # Virtual env
 trees-ong/
 env/
+venv/
+myenv/
