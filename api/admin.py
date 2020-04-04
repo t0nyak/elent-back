@@ -4,7 +4,7 @@ from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.contrib.auth.admin import UserAdmin
 
 from .forms import SocioChangeForm, SocioCreationForm
-from .models import Socio
+from .models import Socio, Project, FeeDistribution, Fee
 
 
 class SocioAdmin(UserAdmin):
@@ -28,3 +28,6 @@ class SocioAdmin(UserAdmin):
 
 
 admin.site.register(Socio, SocioAdmin)
+admin.site.register(Project)
+admin.site.register(Fee)
+admin.site.register(FeeDistribution)
