@@ -1,5 +1,7 @@
 from django.db import models
+from api.models import Image
 import uuid
+
 
 # Create your models here.
 class Author(models.Model):
@@ -7,6 +9,8 @@ class Author(models.Model):
         primary_key=True, default=uuid.uuid4, editable=False)
     name = models.CharField(max_length=80)
     email = models.CharField(max_length=120)
+
+    profile_pic = models.ForeignKey(Image, null=True, on_delete=models.DO_NOTHING)
 
     class Meta:
         verbose_name_plural = "Autores"
@@ -46,6 +50,7 @@ class Post(models.Model):
 
     author = models.ForeignKey(Author, on_delete=models.DO_NOTHING)
     category = models.ForeignKey(Category, on_delete=models.DO_NOTHING)
+    images = models.ForeignKey(Image, null=True, on_delete=models.DO_NOTHING)
 
     class Meta:
         ordering = ['-created_on']

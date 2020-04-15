@@ -72,3 +72,16 @@ class FeeDistribution(models.Model):
 
     def __str__(self):
         return self.percentage
+
+
+ImageTypes = (
+    (0, 'UserProfile'),
+    (1, 'BlogPost'),
+    (2, 'ShopItem')
+)
+class Image(models.Model):
+    uuid = models.UUIDField(
+        primary_key=True, default=uuid.uuid4, editable=False)
+    image = models.ImageField()
+    name = models.CharField(max_length=120)
+    type = models.IntegerField(choices=ImageTypes)

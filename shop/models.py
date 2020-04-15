@@ -1,4 +1,5 @@
 from django.db import models
+from api.models import Image
 import uuid
 
 from datetime import datetime
@@ -28,6 +29,7 @@ class Product(models.Model):
     price = models.FloatField()
 
     category = models.ForeignKey(Category, on_delete=models.DO_NOTHING)
+    images = models.ManyToManyField(Image)
 
     class Meta:
         verbose_name = "Producto"
