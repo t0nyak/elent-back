@@ -46,6 +46,9 @@ class Cart(models.Model):
 
     user = models.ForeignKey(Socio, on_delete=models.CASCADE, null=True)
 
+    def __str__(self):
+        return self.user + ' - ' + self.created_at
+
 
 class CartItem(models.Model):
     uuid = models.UUIDField(

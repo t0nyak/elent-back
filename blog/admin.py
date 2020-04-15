@@ -9,7 +9,15 @@ class PostAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
 
 
+class AuthorAdmin(admin.ModelAdmin):
+    list_display = ('name', 'email')
+
+
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = 'name'
+
+
 # Register your models here.
-admin.site.register(Author)
-admin.site.register(Category)
+admin.site.register(Author, AuthorAdmin)
+admin.site.register(Category, CategoryAdmin)
 admin.site.register(Post, PostAdmin)

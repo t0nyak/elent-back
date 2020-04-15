@@ -28,6 +28,24 @@ class SocioAdmin(UserAdmin):
 
 
 admin.site.register(Socio, SocioAdmin)
-admin.site.register(Project)
-admin.site.register(Fee)
-admin.site.register(FeeDistribution)
+
+
+class ProjectAdmin(admin.ModelAdmin):
+    list_display = ['title', 'unit', 'visible', 'got', 'goal', 'created_on']
+
+
+admin.site.register(Project, ProjectAdmin)
+
+
+class FeeAdmin(admin.ModelAdmin):
+    list_display = ['amount']
+
+
+admin.site.register(Fee, FeeAdmin)
+
+
+class FeeDistributionAdmin(admin.ModelAdmin):
+    list_display = ['fee', 'project', 'percentage']
+
+
+admin.site.register(FeeDistribution, FeeDistributionAdmin)

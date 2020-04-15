@@ -23,6 +23,9 @@ class Fee(models.Model):
         primary_key=True, default=uuid.uuid4, editable=False)
     amount = models.FloatField(default=0.0)
 
+    def __str__(self):
+        return self.amount
+
 
 # Create your models here.
 class Socio(AbstractUser):
