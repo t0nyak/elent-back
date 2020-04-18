@@ -60,4 +60,4 @@ class CartItem(models.Model):
     cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.product + " - x" + self.quantity
+        return self.product + " - x" + str(self.quantity)

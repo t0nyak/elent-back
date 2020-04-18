@@ -1,10 +1,8 @@
 from django.contrib import admin
-from django.contrib.auth.models import Group
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.contrib.auth.admin import UserAdmin
 
 from .forms import SocioChangeForm, SocioCreationForm
-from .models import Socio, Project, FeeDistribution, Fee
+from .models import Socio, Project, FeeDistribution, Fee, Image
 
 
 class SocioAdmin(UserAdmin):
@@ -49,3 +47,10 @@ class FeeDistributionAdmin(admin.ModelAdmin):
 
 
 admin.site.register(FeeDistribution, FeeDistributionAdmin)
+
+
+class ImageAdmin(admin.ModelAdmin):
+    list_display = ('name', 'type')
+
+
+admin.site.register(Image, ImageAdmin)

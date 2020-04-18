@@ -24,7 +24,7 @@ class Fee(models.Model):
     amount = models.FloatField(default=0.0)
 
     def __str__(self):
-        return self.amount
+        return str(self.amount)
 
 
 # Create your models here.
@@ -74,7 +74,7 @@ class FeeDistribution(models.Model):
         verbose_name = "DistribucionCuota"
 
     def __str__(self):
-        return self.percentage
+        return str(self.percentage)
 
 
 ImageTypes = (
