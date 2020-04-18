@@ -14,7 +14,7 @@ class AuthorAdmin(admin.ModelAdmin):
 
 
 class CategoryAdmin(admin.ModelAdmin):
-    list_display = 'name'
+    list_display = ('name',)
 
 
 # Register your models here.
