@@ -14,12 +14,12 @@ class CartAdmin(admin.ModelAdmin):
     list_display = ('user', 'created_at')
 
 
-class Product(admin.ModelAdmin):
+class ProductAdmin(admin.ModelAdmin):
     list_display = ('name', 'category', 'price')
 
 
 # Register your models here.
-admin.site.register(Category)
-admin.site.register(CartItem)
-admin.site.register(Cart)
-admin.site.register(Product)
+admin.site.register(Category, CategoryAdmin)
+admin.site.register(CartItem, CartItemAdmin)
+admin.site.register(Cart, CartAdmin)
+admin.site.register(Product, ProductAdmin)
