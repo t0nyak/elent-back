@@ -4,7 +4,7 @@ from django.contrib.auth.models import AbstractUser
 from django.utils.translation import ugettext_lazy as _
 import uuid
 
-fs = FileSystemStorage(location='/media/images')
+fs = FileSystemStorage(location='/home/elent/back-admin/media/images')
 
 USER_TYPES = (
     (0, 'Admin'),
