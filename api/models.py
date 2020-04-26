@@ -1,7 +1,10 @@
+from django.core.files.storage import FileSystemStorage
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.utils.translation import ugettext_lazy as _
 import uuid
+
+fs = FileSystemStorage(location='/media/images')
 
 USER_TYPES = (
     (0, 'Admin'),
@@ -17,6 +20,13 @@ PROJECT_UNITS = (
     (3, 'euros')
 )
 
+ImageTypes = (
+    (0, 'UserProfile'),
+    (1, 'BlogPost'),
+    (2, 'ShopItem'),
+    (3, 'SectionHeader')
+)
+
 
 class Fee(models.Model):
     uuid = models.UUIDField(
@@ -27,16 +37,10 @@ class Fee(models.Model):
         return str(self.amount)
 
 
-ImageTypes = (
-    (0, 'UserProfile'),
-    (1, 'BlogPost'),
-    (2, 'ShopItem'),
-    (3, 'SectionHeader')
-)
 class Image(models.Model):
     uuid = models.UUIDField(
         primary_key=True, default=uuid.uuid4, editable=False)
-    image = models.ImageField(upload_to='images')
+    image = models.ImageField(storage=fs)
     name = models.CharField(max_length=120)
     type = models.IntegerField(choices=ImageTypes)
 
