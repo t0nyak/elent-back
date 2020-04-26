@@ -27,6 +27,20 @@ class Fee(models.Model):
         return str(self.amount)
 
 
+ImageTypes = (
+    (0, 'UserProfile'),
+    (1, 'BlogPost'),
+    (2, 'ShopItem'),
+    (3, 'SectionHeader')
+)
+class Image(models.Model):
+    uuid = models.UUIDField(
+        primary_key=True, default=uuid.uuid4, editable=False)
+    image = models.ImageField(upload_to='images')
+    name = models.CharField(max_length=120)
+    type = models.IntegerField(choices=ImageTypes)
+
+
 # Create your models here.
 class Socio(AbstractUser):
     type = models.IntegerField(choices=USER_TYPES, default=3)
@@ -36,6 +50,7 @@ class Socio(AbstractUser):
     updated_on = models.DateTimeField(auto_now=True)
 
     fee = models.OneToOneField(Fee, on_delete=models.DO_NOTHING, null=True)
+    profile_img = models.ForeignKey(Image, on_delete=models.DO_NOTHING, null=True)
 
     class Meta:
         verbose_name = "Socio"
@@ -54,6 +69,8 @@ class Project(models.Model):
     got = models.IntegerField()
     goal = models.IntegerField()
     created_on = models.DateTimeField(auto_now_add=True)
+
+    image = models.ForeignKey(Image, on_delete=models.DO_NOTHING, null=True)
 
     class Meta:
         verbose_name = "Proyecto"
@@ -77,14 +94,4 @@ class FeeDistribution(models.Model):
         return str(self.percentage)
 
 
-ImageTypes = (
-    (0, 'UserProfile'),
-    (1, 'BlogPost'),
-    (2, 'ShopItem')
-)
-class Image(models.Model):
-    uuid = models.UUIDField(
-        primary_key=True, default=uuid.uuid4, editable=False)
-    image = models.ImageField()
-    name = models.CharField(max_length=120)
-    type = models.IntegerField(choices=ImageTypes)
+
