@@ -56,7 +56,9 @@ MIDDLEWARE = [
 ]
 
 CORS_ORIGIN_WHITELIST = [
-    "http://localhost:4200"
+    "http://localhost:4200",
+    "http://localhost",
+    "http://localhost:8000"
 ]
 
 ROOT_URLCONF = 'trees_ong_back.urls'
