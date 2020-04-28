@@ -59,6 +59,9 @@ CORS_ORIGIN_WHITELIST = [
     "http://localhost:4200",
     "http://localhost",
     "http://localhost:8000",
+    "http://www.elent.org:8000",
+    "http://www.elent.org:8080",
+    "http://www.elent.org:80",
     "http://www.elent.org"
 ]
 
