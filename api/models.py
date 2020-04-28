@@ -1,10 +1,11 @@
 from django.core.files.storage import FileSystemStorage
+from django.conf import settings
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.utils.translation import ugettext_lazy as _
 import uuid
 
-fs = FileSystemStorage(location='/home/elent/back-admin/media/images')
+fs = FileSystemStorage(location=settings.MEDIA_ROOT)
 
 USER_TYPES = (
     (0, 'Admin'),
@@ -43,6 +44,9 @@ class Image(models.Model):
     image = models.ImageField(storage=fs)
     name = models.CharField(max_length=120)
     type = models.IntegerField(choices=ImageTypes)
+
+    def __str__(self):
+        return self.name
 
 
 # Create your models here.

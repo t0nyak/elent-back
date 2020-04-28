@@ -1,4 +1,5 @@
 from rest_framework import serializers
+from django.conf import settings
 from . import models
 
 
@@ -34,6 +35,15 @@ class CartSerializer(serializers.ModelSerializer):
 
 
 class ProductSerializer(serializers.ModelSerializer):
+    images = serializers.SerializerMethodField('get_image_url')
+    category = serializers.SlugRelatedField(
+        many=False,
+        read_only=True,
+        slug_field='name'
+    )
+
+    def get_image_url(self, obj):
+        return {settings.MEDIA_ROOT + '/' + x.image.url for x in obj.images.all()}
 
     class Meta:
         model = models.Product

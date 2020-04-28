@@ -1,5 +1,7 @@
 from django.contrib import admin
+from django import forms
 from .models import CartItem, Cart, Category, Product
+from api.models import Image
 
 
 class CategoryAdmin(admin.ModelAdmin):
@@ -15,6 +17,7 @@ class CartAdmin(admin.ModelAdmin):
 
 
 class ProductAdmin(admin.ModelAdmin):
+    #form = ProductModelForm
     list_display = ('name', 'category', 'price')
 
 
