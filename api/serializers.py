@@ -19,7 +19,7 @@ class ProjectSerializer(serializers.ModelSerializer):
         return PROJECT_UNITS[obj.unit][1]
 
     def get_image_url(self, obj):
-        return settings.MEDIA_URL + 'images/' + obj.image.image.url
+        return obj.image.image.url
 
     class Meta:
         model = models.Project
