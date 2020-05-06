@@ -43,7 +43,7 @@ class ProductSerializer(serializers.ModelSerializer):
     )
 
     def get_image_url(self, obj):
-        return {settings.MEDIA_ROOT + '/' + x.image.url for x in obj.images.all()}
+        return {x.image.url for x in obj.images.all()}
 
     class Meta:
         model = models.Product
