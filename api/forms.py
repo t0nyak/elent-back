@@ -4,7 +4,7 @@ from .models import Socio, USER_TYPES
 
 
 class SocioCreationForm(UserCreationForm):
-    fee = forms.FloatField()
+    # fee = forms.FloatField()
     # type = forms.Select(choices=USER_TYPES)
 
     # def save(self, commit=True):
@@ -19,7 +19,7 @@ class SocioCreationForm(UserCreationForm):
 
 
 class SocioChangeForm(UserChangeForm):
-    fee = forms.FloatField()
+    # fee = forms.FloatField()
     # type = forms.Select(choices=USER_TYPES)
 
     # def save(self, commit=True):
