@@ -7,7 +7,7 @@ from .models import Author, Category, Post
 
 # ViewSets define the view behavior.
 class PostViewSet(viewsets.ModelViewSet):
-    queryset = Post.objects.all()
+    queryset = Post.objects.filter(status=1)
     serializer_class = PostSerializer
 
 
@@ -29,8 +29,5 @@ router.register(r'categories', CategoryViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
-    path('posts/', views.PostList.as_view()),
-    path('posts/<str:pk>', views.PostDetail.as_view()),
-    path('authors/', views.authors),
-    path('categories/', views.categories)
+    path('posts/last', views.LastPostsList.as_view())
 ]
