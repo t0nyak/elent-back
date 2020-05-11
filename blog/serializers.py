@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from . import models
 
+
 class AuthorSerializer(serializers.ModelSerializer):
 
     class Meta:
@@ -16,17 +17,9 @@ class CategorySerializer(serializers.ModelSerializer):
 
 
 class PostSerializer(serializers.ModelSerializer):
-    authors = serializers.SlugRelatedField(
-        many=False,
-        read_only=True,
-        slug_field='name'
-    )
-    categories = serializers.SlugRelatedField(
-        many=False,
-        read_only=True,
-        slug_field='name'
-    )
+    created_on = serializers.DateTimeField(format="%d %B, %Y")
 
     class Meta:
         model = models.Post
-        fields = ('__all__')
+        fields = '__all__'
+        depth = 1
