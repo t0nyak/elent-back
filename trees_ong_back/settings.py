@@ -25,7 +25,7 @@ SECRET_KEY = 'mekfwj@h+vb2th3!vgrx3q*z00)cxa@3&tzgzsh2sw$+c#9hiu'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost','elent.org','www.elent.org']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost','elent.org','www.elent.org', '112.124.42.80']
 
 
 # Application definition
