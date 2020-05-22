@@ -24,3 +24,14 @@ class ProjectSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Project
         fields = '__all__'
+
+
+class ImageSerializer(serializers.ModelSerializer):
+    image = serializers.SerializerMethodField('get_image_url')
+
+    def get_image_url(self):
+        return self.image.url
+
+    class Meta:
+        model = models.Image
+        fields = '__all__'
