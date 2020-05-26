@@ -1,6 +1,7 @@
 from django.db import models
 from api.models import Image
 import uuid
+from ckeditor.fields import RichTextField
 
 
 # Create your models here.
@@ -46,7 +47,7 @@ class Post(models.Model):
     uuid = models.UUIDField(
         primary_key=True, default=uuid.uuid4, editable=False)
     title = models.CharField(max_length=200, unique=True)
-    body = models.TextField()
+    body = RichTextField()
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     slug = models.SlugField(max_length=200, unique=True, null=True)

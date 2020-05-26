@@ -41,7 +41,9 @@ INSTALLED_APPS = [
     'blog.apps.BlogConfig',
     'shop.apps.ShopConfig',
     'rest_framework',
-    'corsheaders'
+    'corsheaders',
+    'ckeditor',
+    'ckeditor_uploader'
 ]
 
 MIDDLEWARE = [
@@ -142,3 +144,4 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIA_URL = '/media/images/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/images')
+CKEDITOR_UPLOAD_PATH = MEDIA_ROOT
